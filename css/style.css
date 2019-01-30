@@ -1,0 +1,104 @@
+html
+{
+	height: 100%;
+}
+
+body
+{	
+	/*Font-family sert à changer la police*/	
+	font-family: Segoe UI;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+.page
+{
+	min-height: 100%;
+    position: relative;
+}
+
+footer
+{
+/*position relative refait un calcule pour positionner l'élément*/
+	position: relative;
+	bottom: 0;
+	width: 100%;
+	height: 50px;
+	background-color:#2F9296;
+}
+
+/* sert à fixer le footer en bas même si ya de l'espace vide*/
+h1
+{
+    padding-top: 10px;
+    color: #00ADB5;
+	width:auto;
+	font-size: 1.7em;
+}
+
+ul
+{
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+  padding: 0;
+}
+a.nav-link, a.navbar-brand
+{
+	text-decoration: none;
+	color: white!important;
+}
+
+p 
+{
+	text-align: center;
+}
+
+nav{
+  height: 90px;
+  padding-top: 30px;
+  background-color:#2F9296;
+}
+
+.content 
+{
+    display: flex;
+    justify-content: space-around;
+}
+
+.center
+{
+margin: auto;
+width: auto;
+}
+.cadre
+{
+	margin: auto;
+	width: 20%;
+}
+
+/* boutons ronds */
+.btn 
+{
+	border: 1px solid #00ADB5;
+	background-color: white;
+	color: #00ADB5;
+	border-radius: 100px;
+}
+
+.bg-vb
+{
+	background-color: #DFF5F2 ;
+	margin: auto;
+	width: auto;
+}
+
+.img-fluid
+{
+	border-radius: 100%;
+}
+.fas
+{
+	font-size: 1.5em;
+	color: #00ADB5;
+}
