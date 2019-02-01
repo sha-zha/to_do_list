@@ -6,7 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Membre</title>
 	<!-- bootstrap-->
-    <link rel="stylesheet" href="css/bootstrap.min.css"> 
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- fontawesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous"> 
     <!-- Notre css-->
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
@@ -35,72 +37,36 @@
                     </ul>
                 </div>
             </nav>   
+			<!--FIn navbar-->
 
 			<main class=" container my-4">
 				<h1 class="text-center">Page Membre</h1>
+				<div class="text-center" style="margin-bottom: -1rem;">
+					<button class="btn" onclick="add_membre()">Ajouter un membre</button>
+				</div>
 				<!--Section qui montre les membres sur un projet -->
-				<section class=" row bg-vb d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+				<section class=" row bg-vb d-flex justify-content-center align-items-center my-2" style="min-height: 100vh;">
 
-					<!--membre 1-->
+				
+
+
+					<!--membre-->
 					<article class="p-2">		                    
 							<div class="card" style="width: 18rem;">
 							  <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe0ub78kIqvmA13W9Sr6VdDcu0ciXwScvgKgDKQuitqLAQoUxJng" alt="Card image cap">
-							  <div class="card-body">
+							  <div class="card-body text-center">
 							    <p class="card-text">Pseudo</p>
 							  </div>
+							
 							</div>
 											
 					</article>
 
-					<!--membre 2-->
-					<article class="p-2">
-						
-							<div class="card" style="width: 18rem;">
-							  <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe0ub78kIqvmA13W9Sr6VdDcu0ciXwScvgKgDKQuitqLAQoUxJng" alt="Card image cap">
-							  <div class="card-body">
-							    <p class="card-text">Pseudo</p>
-							  </div>
-							</div>
-											
-					</article>
-
-					<!--membre 3-->
-					<article class="p-2">
-						
-							<div class="card" style="width: 18rem;">
-							  <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe0ub78kIqvmA13W9Sr6VdDcu0ciXwScvgKgDKQuitqLAQoUxJng" alt="Card image cap">
-							  <div class="card-body">
-							    <p class="card-text">Pseudo</p>
-							  </div>
-							</div>
-											
-					</article>
-
-					<!--membre 4-->
-					<article class="p-2">
-						
-							<div class="card" style="width: 18rem;">
-							  <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe0ub78kIqvmA13W9Sr6VdDcu0ciXwScvgKgDKQuitqLAQoUxJng" alt="Card image cap">
-							  <div class="card-body">
-							    <p class="card-text">Pseudo</p>
-							  </div>
-							</div>
-											
-					</article>
-
-					<!--membre 5-->
-					<article class="p-2">
-						
-							<div class="card" style="width: 18rem;">
-							  <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe0ub78kIqvmA13W9Sr6VdDcu0ciXwScvgKgDKQuitqLAQoUxJng" alt="Card image cap">
-							  <div class="card-body">
-							    <p class="card-text">Pseudo</p>
-							  </div>
-							</div>
-											
-					</article>
 				</section>
 			</main>
+
 		<footer class="footer"><p>Copyright</p></footer>
+
+		<script type="text/javascript" src="js/membre.js"></script>
 	</body>
 </html>
