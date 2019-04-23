@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>TO DO LIST</title>
+       <!-- fontawesome-->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    </head>
+    <body>
+
+    	<main>
+    		<div class="container text-center my-2">
+                  <button type="button" class="btn" data-toggle="modal" data-target ="#modal_liste">Ajouter une liste</button> 
+              </div>     
+
+		        <section class="container">
+		            <div class="row">
+		               <!-- en placement destiné au liste
+		                <div class="col-md-4">
+		                     <div class="card">
+		                        <div class="card-body">-->
+		                          <!--au click rajoute un nouveau élément dans la liste-->
+		                         <!-- <i class="fas fa-plus-circle" data-toggle="modal" data-target="#modal_tache"></i>
+		                          <h5 class="card-title text-center"data-title="Lundi">Lundi</h5>
+		               
+		                            <ul id="sortable1" class="card-text">
+		                                <li class="list-group-item d-flex justify-content-between align-items-center">tache - description</li>
+		                                <li class="list-group-item d-flex justify-content-between align-items-center">tache - description</li>
+		                                <li class="list-group-item d-flex justify-content-between align-items-center">tache - description</li>
+		                                <li class="list-group-item d-flex justify-content-between align-items-center">tache - description</li>
+		                                <li class="list-group-item d-flex justify-content-between align-items-center">tache - description</li>
+		                            </ul>
+		                        </div>
+		                    </div>
+		                </div>-->
+		            </div>
+		        </section>
+    	</main>
+
+
+             
+<!-- The Modal ajout tache -->
+
+<div class="modal fade" id="modal_tache" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <!--Header modal -->
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ajouter une tâche</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       
+        <div id="dialog-form" title="Create new order">
+            <form>
+                <fieldset>
+                    <label for="po">Tache :</label> 
+                    <input type="text"  class="form-control" name="ajout_tache" id="ajout_tache" placeholder="Saisir une tâche" class="text ui-widget-content ui-corner-all">
+                    <label for="description">Description : </label>
+                    <input type="text"  class="form-control" name="description" id="description" class="text ui-widget-content ui-corner-all">
+
+                    <label for="list">Choisir une liste</label>
+                    <select id="list" name="list">
+
+                    </select>
+                </fieldset>
+            </form>
+        </div>
+      </div>
+      <!-- footer modal avec bouton-->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+        <button type="button" class="btn btn-primary "id="btn-tache">Ajouter</button>
+      </div>
+    </div>
+  </div>
+</div>
+       <!-- The Modal ajout liste-->
+
+<div class="modal fade" id="modal_liste" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <!--Header modal -->
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ajouter une liste</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+         <div id="dialog-form-list" title="Create new list">
+            <form id="formList">
+                <fieldset>
+                    <label for="listname">Choisir un nom:</label>
+                    <input type="text" name="listname" id="listname" placeholder="Saisir un nom" class="form-control">
+                </fieldset>
+            </form>
+        </div>
+      </div>
+      <!-- footer modal avec bouton-->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+        <button type="button" class="btn btn-primary" id="btn-list">Ajouter</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+        <script>
+
+$(document).ready(function (){
+  $(function () {
+    var compteur = 1; 
+              
+    $(".btn").button().click(function (event) {
+        event.preventDefault();
+    });
+
+function add_tache() {
+                    
+    compteur++;
+
+    var selectedList = $('#list').find(":selected").text();
+    //on recherche les div ayant data-title pour insérer le nom de la var selectedList
+    var box = $('div').find("[data-title='" + selectedList + "']");
+    //on recherche ul de les div ayant comme attribut data-title
+    // on créer les éléments 
+    const ul = document.createElement('ul');
+    const li = document.createElement('li');
+    const trash = document.createElement('i');
+
+    //on récupère les valeurs de la tache et son description
+    var ajout_tache = $('#ajout_tache').val();
+    var description= $('#description').val();
+
+    //on ajoute les classes
+    $(ul).addClass('card-text');
+    $(li).addClass('list-group-item d-flex  justify-content-between align-items-center');
+    $(trash).addClass('fas fa-trash');
+    
+    //incrémentation du li
+    $(li).attr('id', +compteur);
+
+    //on créee la tache + sa descritpion à l'endroit où on a sélectionné 
+    $(li).append(document.createTextNode(ajout_tache + " - " + description));
+    box.append(ul);
+    $(ul).append(li);
+    $(li).append(trash);
+ 
+  
+}
+
+    
+   function add_list() {
+ //création toutes les variables qu'on aura besoin
+          compteur++;
+
+          var div_main = document.createElement('div');
+          var div_card = document.createElement('div');
+          var div_body = document.createElement('div');
+          var plus = document.createElement('i');
+          var titre = document.createElement('h5');
+          var div_btn = document.createElement('div');
+          
+          
+         
+
+          //ajout des class aux éléments créés
+          $(div_main).addClass('col-md-4');
+          $(div_card).addClass('card');
+          $(div_body).addClass('card-body');
+          $(plus).addClass('fas fa-plus-circle');
+          $(titre).addClass('card-title text-center');
+          $(div_btn).addClass('container text-center my-2');
+          
+    
+          // on récupère le nom de la liste                 
+            var list_name = $('#listname').val();
+          
+          //ajout des attributes 
+          $(plus).attr('data-toggle', 'modal');
+          $(plus).attr('data-target', '#modal_tache');
+          $(div_body).attr('data-title', list_name);
+
+          //ajout id aux card
+          $(div_body).attr('id', + compteur);
+          
+          //créer le text contenu par la variable data 
+          $(titre).append(document.createTextNode(list_name));
+
+          console.log(plus);
+
+          //créations des éléments 
+          $('.row').append(div_main);
+          $(div_main).append(div_card);
+          $(div_main).append(div_btn);
+          $(div_card).append(div_body);
+          $(div_body).append(plus);
+          $(div_body).append(titre);
+                     
+
+        $(div_btn).html("<button class='btn btn-sup' onclick='effacer("+compteur+")'>Supprimer</button>");
+
+        //on crée l'option avec la valeur de la liste
+        $('#list').append('<option value="' + list_name + '" selected="selected">' + list_name + '</option>');
+              
+    }
+    
+    function effacer(compteur){
+        //demande confirmation
+        confirm('Are you sure?');
+
+       $('#'+compteur).remove();
+    }
+                
+     $("#btn-list").click(function (event) {
+        event.preventDefault();
+        add_list();
+        $('#modal_liste').modal('hide');
+                    
+      });
+                
+      $('#btn-tache').click(function (event){
+        event.preventDefault();
+        add_tache();
+        $('#myModal').modal('hide');
+      });
+             
+  });
+});
+
+        </script>
+    </body>
+</html>

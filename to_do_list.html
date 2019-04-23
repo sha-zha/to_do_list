@@ -42,33 +42,14 @@
    
      <main>
         <div class="container text-center my-2">
-            <button type="button" class="btn" data-toggle="modal" data-target ="#modal_liste">Ajouter une liste</button>             
+            <button type="button" class="btn modal-liste" data-toggle="modal" data-target ="#modal_liste" data-id ="3">Ajouter une liste</button>             
         </div>
 
         <section class="container">
           <!--block des listes-->
             <div class="row">
-                 <div class="col-md-4 p-4">
-                       <div class="card">
-                          <div class="card-body">
-                            <!--au click rajoute un nouveau élément dans la liste-->
-                            <i class="fas fa-plus-circle" data-toggle ="modal" data-target="#modal_tache"></i>
-                            <h5 class="card-title text-center">Lundi</h5>
-                            <!-- la lise des tâches
-                            <ul class=" card-text bg-vb notes">
-                                 <li class="list-group-item d-flex justify-content-between align-items-center">Cours<i class="fas fa-trash"></i>
-                                </li>
-                            </ul>-->
-                          </div>
-                          <!-- fin card-body-->
-                        </div>
-                         <!-- fin card-->
-                    
-                    <div class="container text-center my-2">
-                    <button type="button" class="btn">Supprimer</button>  
-                    </div>
-
-                </div>              
+                
+            </div>               
           </section> 
       </main>       
 
@@ -98,6 +79,7 @@
 
                     <label for="list">Choisir une liste</label>
                     <select id="list" name="list">
+                      <input type="hidden" name="id" id="id">
 
                     </select>
                 </fieldset>
@@ -125,8 +107,8 @@
         </button>
       </div>
       <div class="modal-body">
-         <div id="dialog-form-list" title="Create new list">
-            <form id="formList">
+         <div id="dialog-form-list" title="Ajouter une liste">
+            <form id="formList" method="POST" action="liste.php">
                 <fieldset>
                     <label for="listname">Choisir un nom:</label>
                     <input type="text" name="listname" id="listname" placeholder="Saisir un nom" class="form-control">
